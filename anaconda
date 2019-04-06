@@ -1,0 +1,42 @@
+docker pull continuumio/anaconda3
+
+$ docker run -i -t -p 8888:8888 continuumio/anaconda3 /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-di
+r=/opt/notebooks --ip='0.0.0.0' --allow-root  --port=8888 --no-browser"
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /opt/conda
+
+  added / updated specs:
+    - jupyter
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    conda-4.6.11               |           py37_0         1.7 MB
+
+The following packages will be UPDATED:
+
+    conda: 4.5.12-py37_0 --> 4.6.11-py37_0
+
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+[I 03:39:56.322 NotebookApp] Writing notebook server cookie secret to /root/.local/share/jupyter/runtime/notebook_cookie_secret
+[I 03:39:56.807 NotebookApp] JupyterLab extension loaded from /opt/conda/lib/python3.7/site-packages/jupyterlab
+[I 03:39:56.807 NotebookApp] JupyterLab application directory is /opt/conda/share/jupyter/lab
+[I 03:39:56.814 NotebookApp] Serving notebooks from local directory: /opt/notebooks
+[I 03:39:56.814 NotebookApp] The Jupyter Notebook is running at:
+[I 03:39:56.814 NotebookApp] http://(784ecdbfcfaf or 127.0.0.1):8888/?token=da7dcea34da33ed0312a4300192bbc40a29b388273fc7ff1
+[I 03:39:56.815 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 03:39:56.825 NotebookApp]
+
+    To access the notebook, open this file in a browser:
+        file:///root/.local/share/jupyter/runtime/nbserver-5-open.html
+    Or copy and paste one of these URLs:
+        http://(784ecdbfcfaf or 127.0.0.1):8888/?token=da7dcea34da33ed0312a4300192bbc40a29b388273fc7ff1
+        
+### visit via the url: http://192.168.99.100:8888/?token=862c2446347b24a0bf6c4f9d321e9634f3c430472eccb9bf
