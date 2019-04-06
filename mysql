@@ -7,16 +7,28 @@ docker run /
 --name mymysql /
 -v "$PWD/conf":/etc/mysql/conf.d /
 -v "$PWD/logs":/logs /
--v "$PWD/data":/var/lib/mysql /
+-v "$PWD/data":/var/#/mysql /
 -e MYSQL_ROOT_PASSWORD=123456 
 -d mysql:latest
 
+# the upper command in one line:
+docker run -p 3306:3306 --name mymysql -v "$PWD/conf":/etc/mysql/conf.d -v "$PWD/logs":/logs -v "$PWD/data":/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:latest
+
+# enter the created container
 $ docker exec -it mymysql bin/bash
+
+# exit the container but keep it running
+Ctrl+P+Q
 
 root@f02a750a8d42:/# cat /etc/issue
 Debian GNU/Linux 9 \n \l
 
+# Enter the mysql
 root@f02a750a8d42:/# mysql -u root -p
+Enter password:123456
+
+# Create one database which is named "test"
+mysql> create database test;
 
 mysql> show databases;
 +--------------------+
@@ -31,4 +43,7 @@ mysql> show databases;
 5 rows in set (0.00 sec)
 
 $ docker commit c3f279d17e0a  svendowideit/testimage:version3
+
+# exit and restart the exited container
+docker container restart 3959a5f4ebf3
 
